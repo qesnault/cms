@@ -73,3 +73,7 @@
         }
       }
     }
+
+## Références 
+- [Liste des extensions TYPO3 compatibles composer](https://composer.typo3.org/satis.html)
+- [Documentations TYPO3](https://docs.typo3.org/typo3cms/References.html)
