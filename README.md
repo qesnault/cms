@@ -30,17 +30,21 @@
 
 ### Activer les extensions nécessaires
 
-    php vendor/bin/typo3cms extension:activate introduction
+    php vendor/bin/typo3cms extension:activate bootstrap_package,introduction
     php vendor/bin/typo3cms extension:activate extension_builder
+
+### Activer la vidange du cache système depuis l'interface de gestion
+
+    php vendor/bin/typo3cms configuration:set SYS/clearCacheSystem true
+
+### Vider le cache
+
+    php vendor/bin/typo3cms cache:flush
 
 ### Lancer le serveur PHP
 
     cd web/
     php -S localhost:<port>
-
-### Vider le cache
-
-    php vendor/bin/typo3cms cache:flush
 
 ## A savoir
 
