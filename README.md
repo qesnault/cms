@@ -41,3 +41,35 @@
 ### Vider le cache
 
     php vendor/bin/typo3cms cache:flush
+
+## A savoir
+
+### Renseigner votre extension pour chargement des classes
+
+    // composer.json
+    "autoload": {
+      "psr-4": {
+        "MyVendor\\MySitePackage\\": "typo3conf/ext/my_site_package/Classes"
+      }
+    }
+
+### Configuration composer de votre extension
+
+    {
+      "name": "my-vendor/my-extension-key",
+      "type": "typo3-cms-extension",
+      "version": "x.x.x",
+      "description": "...",
+      "require": {
+        "typo3/cms-core": "^7.6"
+      },
+      "replace": {
+          "my_extension_key": "self.version",
+          "typo3-ter/my-extension-key": "self.version"
+      },
+      "autoload": {
+        "psr-4": {
+          "MyVendor\\MyExtensionKey\\": "Classes/"
+        }
+      }
+    }
