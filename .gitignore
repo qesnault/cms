@@ -2,3 +2,4 @@
 !.gitignore
 !composer.json
 !README.md
+!Makefile
