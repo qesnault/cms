@@ -2,7 +2,14 @@
   "repositories": [
     { "type": "composer", "url": "https://composer.typo3.org/" }
   ],
+  "authors": [
+    {
+      "name": "Julien VITTE",
+      "email": "vitte.julien@gmail.com"
+    }
+  ],
   "name": "pitchart/dawin-typo3-cms-distribution",
+  "description": "TYPO3 distribution for CMS courses at LP Dawin",
   "require": {
     "typo3/cms": "^7.6",
     "helhum/typo3-console":"4.0",
