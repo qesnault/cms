@@ -28,8 +28,19 @@ install-ext:
 	$(CONSOLE) extension:activate gridelements
 	$(CONSOLE) extension:activate bootstrap_grids
 
-# Adds link to clear system cache from backend
-install-config:
+# Configurations
+install-config: config-cache config-dev
+
+config-cache:
 	$(CONSOLE) configuration:set SYS/clearCacheSystem true
 
-.PHONY: cache-clear autoload install install-composer install-console install-ext install-config
+config-dev:
+	$(CONSOLE) configuration:set SYS/displayErrors 1
+	$(CONSOLE) configuration:set SYS/devIPmask '*'
+	$(CONSOLE) configuration:set SYS/sqlDebug 1
+	$(CONSOLE) configuration:set SYS/enableDeprecationLog file
+	$(CONSOLE) configuration:set SYS/systemLogLevel 0
+	$(CONSOLE) configuration:set BE/debug true
+	$(CONSOLE) configuration:set FE/debug true
+
+.PHONY: cache-clear autoload install install-composer install-console install-ext install-config config-cache config-dev
