@@ -1,63 +1,61 @@
-# Installation de TYPO3
+# TYPO3-CMS installation
 
-> Avec composer et typo3_console
+With [composer](https://getcomposer.org/) and [typo3_console](https://packagist.org/packages/helhum/typo3-console)
 
-## Prérequis
+## Prerequisites
 
 - PHP >= 5.6
 - MySQL >= 5.5
-- Apache >= 2.1 (si possible)
-- Un utilisateur ayant accès à **une base de données vide**
+- Apache >= 2.1 (if available)
+- A database user with granted access to **an empty database**
 
 ## Installation
 
-### Cloner le dépôt
+### Clone the repository
 
     git clone git@github.com:pitchart/dawin-typo3-cms-distribution.git ./cms
     cd cms
 
-
-### Installer les sources via composer
+### Install vendors from composer
 
     composer install
 
-### Installer TYPO3 via la console
+### Install TYPO3 with typo3_console
 
     php vendor/bin/typo3cms install:setup
 
-
 ## Post installation
 
-### Activer les extensions nécessaires
+### Activate extensions
 
-    php vendor/bin/typo3cms extension:activate bootstrap_package,introduction
-    php vendor/bin/typo3cms extension:activate extension_builder
+    php vendor/bin/typo3cms extension:activate **extension_key**
 
-### Activer la vidange du cache système depuis l'interface de gestion
+### Enable system cache flush form backend
 
     php vendor/bin/typo3cms configuration:set SYS/clearCacheSystem true
 
-### Vider le cache
+### Flush cache
 
     php vendor/bin/typo3cms cache:flush
 
-### Lancer le serveur PHP
+### Launch a PHP server
 
-    cd web/
-    php -S localhost:<port>
+    php -S localhost:<port> -t web/
 
-## A savoir
+The TYPO3 website is available at http://localhost:8080/ and the backend at http://localhost:8080/typo3/
 
-### Renseigner votre extension pour chargement des classes
+## TIPS
+
+### Adding your extension's class loading informations
 
     // composer.json
     "autoload": {
       "psr-4": {
-        "MyVendor\\MySitePackage\\": "typo3conf/ext/my_site_package/Classes"
+        "MyVendor\\MySitePackage\\": "web/typo3conf/ext/my_site_package/Classes"
       }
     }
 
-### Configuration composer de votre extension
+### composer.json template for your extension
 
     {
       "name": "my-vendor/my-extension-key",
@@ -69,7 +67,7 @@
       },
       "replace": {
           "my_extension_key": "self.version",
-          "typo3-ter/my-extension-key": "self.version"
+          "my-vendor/my-extension-key": "self.version"
       },
       "autoload": {
         "psr-4": {
@@ -78,9 +76,9 @@
       }
     }
 
-## Références 
-- [Liste des extensions TYPO3 compatibles composer](https://composer.typo3.org/satis.html)
-- [Documentations TYPO3](https://docs.typo3.org/typo3cms/References.html)
+## References
+- [TYPO3 extensions available for composer usage](https://composer.typo3.org/satis.html)
+- [TYPO3 Documentations](https://docs.typo3.org/typo3cms/References.html)
 - [Composer and TYPO3 7LTS](https://usetypo3.com/typo3-and-composer.html)
 - [How to configure class loading for extensions in TYPO3 7LTS](http://insight.helhum.io/post/130876393595/how-to-configure-class-loading-for-extensions-in)
 - [Add a Git repository as a package using Composer for PHP](http://www.andrew-kirkpatrick.com/2012/10/add-a-git-repository-as-a-package-using-composer-for-php/)
