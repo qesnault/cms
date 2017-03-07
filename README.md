@@ -81,3 +81,6 @@
 ## Références 
 - [Liste des extensions TYPO3 compatibles composer](https://composer.typo3.org/satis.html)
 - [Documentations TYPO3](https://docs.typo3.org/typo3cms/References.html)
+- [Composer and TYPO3 7LTS](https://usetypo3.com/typo3-and-composer.html)
+- [How to configure class loading for extensions in TYPO3 7LTS](http://insight.helhum.io/post/130876393595/how-to-configure-class-loading-for-extensions-in)
+- [Add a Git repository as a package using Composer for PHP](http://www.andrew-kirkpatrick.com/2012/10/add-a-git-repository-as-a-package-using-composer-for-php/)
