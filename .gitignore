@@ -15,7 +15,8 @@
 /web/typo3temp
 /web/typo3
 /web/index.php
-/var/cache/
+
+/var/cache/*
 !/var/cache/.gitkeep
-/var/log/
+/var/log/*
 !/var/log/.gitkeep
