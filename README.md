@@ -75,6 +75,18 @@ The TYPO3 website is available at http://localhost:8080/ and the backend at http
         }
       }
     }
+    
+### Show php error in development mode
+
+By default Typo3 replaces php errors by a message in order to avoid stopping the page's loading if a php error has occured.
+In development mode you need to deactivate this mode.
+
+In List Go to the root page (Page next to earth), then edit the template record. 
+In the field setup add the following code:
+
+    config.contentObjectExceptionHandler = 0
+    
+https://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#contentobjectexceptionhandler
 
 ## References
 - [TYPO3 extensions available for composer usage](https://composer.typo3.org/satis.html)
