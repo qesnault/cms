@@ -24,7 +24,7 @@ return [
         'writerConfiguration' => [
             \TYPO3\CMS\Core\Log\LogLevel::DEBUG => [
                 \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-                    dirname(PATH_site).'/var/log/typo3-development.log'
+                    'logFile' => dirname(PATH_site).'/var/log/typo3-development.log'
                 ]
             ]
         ]

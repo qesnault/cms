@@ -14,7 +14,7 @@ return [
         'writerConfiguration' => [
             LogLevel::WARNING => [
                 FileWriter::class => [
-                    dirname(PATH_site).'/var/log/typo3-default.log'
+                    'logFile' => dirname(PATH_site).'/var/log/typo3-default.log'
                 ]
             ]
         ]
