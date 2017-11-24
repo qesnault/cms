@@ -26,7 +26,6 @@ install-ext:
 	$(CONSOLE) extension:activate introduction
 	$(CONSOLE) extension:activate extension_builder
 	$(CONSOLE) extension:activate gridelements
-	$(CONSOLE) extension:activate bootstrap_grids
 
 # Configurations
 install-config: config-cache config-dev
