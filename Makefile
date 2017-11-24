@@ -1,4 +1,4 @@
-COMPOSER?=/usr/bin/composer
+COMPOSER?=/usr/local/bin/composer
 CONSOLE= php vendor/bin/typo3cms
 
 # Cache
