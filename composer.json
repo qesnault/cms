@@ -1,5 +1,6 @@
 {
   "repositories": [
+    { "type": "composer", "url": "https://satis.insidegroup.fr/" },
     { "type": "composer", "url": "https://composer.typo3.org/" }
   ],
   "authors": [
@@ -11,13 +12,12 @@
   "name": "pitchart/dawin-typo3-cms-distribution",
   "description": "TYPO3 distribution for CMS courses at LP Dawin",
   "require": {
-    "typo3/cms": "^7.6",
+    "typo3/cms": "^8.7",
     "helhum/typo3-console":"~4.6",
-    "helhum/config-loader": "^0.1.0",
-    "typo3-ter/introduction": "^2.3",
-    "typo3-ter/extension-builder": "^7.6",
-    "typo3-ter/gridelements": "^7.0",
-    "typo3-ter/bootstrap-grids": "^1.3"
+    "helhum/config-loader": "~0.1.0",
+    "friendsoftypo3/extension-builder": "~8.7",
+    "typo3-ter/introduction": "^3.0",
+    "gridelementsteam/gridelements": "dev-master"
   },
   "extra": {
     "typo3/cms": {
