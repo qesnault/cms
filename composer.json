@@ -30,7 +30,8 @@
     "helhum/config-loader": "~0.1.0",
     "friendsoftypo3/extension-builder": "~8.7",
     "typo3-ter/introduction": "^3.0",
-    "gridelementsteam/gridelements": "dev-master"
+    "gridelementsteam/gridelements": "dev-master",
+    "typo3-ter/realurl": "^2.3"
   },
   "extra": {
     "typo3/cms": {
