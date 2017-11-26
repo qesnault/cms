@@ -11,7 +11,7 @@ With [composer](https://getcomposer.org/) and [typo3_console](https://packagist.
 
 ## Development
 
-This distribution is provided with a laradock configuration to run TYPO3 with docker.
+This distribution is provided with a [laradock](http://laradock.io/) configuration to run TYPO3 with docker.
 
 ## Installation
 
@@ -19,13 +19,11 @@ This distribution is provided with a laradock configuration to run TYPO3 with do
 
     git clone --recursive https://github.com/pitchart/dawin-typo3-cms-distribution.git cms
     cd cms/laradock-dawin-t3/
-    make install
-    make bash
-    make install
+    make install-dev
 
 The TYPO3 website is available at http://localhost/ and the backend at http://localhost/typo3/
 
-### Using local environment
+### Using system environment
 
 You must [download composer binaries](https://getcomposer.org/download/) before to start installation.
 
@@ -42,15 +40,11 @@ You must [download composer binaries](https://getcomposer.org/download/) before 
 
     php vendor/bin/typo3cms install:setup
 
-#### Post installation
+#### Post installation commands
 
 ##### Activate an extension
 
     php vendor/bin/typo3cms extension:activate **extension_key**
-
-##### Enable system cache flush form backend
-
-    php vendor/bin/typo3cms configuration:set SYS/clearCacheSystem true
 
 ##### Flush cache
 
