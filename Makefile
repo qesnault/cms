@@ -24,7 +24,7 @@ install-console:
 
 install-console-dev:
 	$(CONSOLE) install:setup --database-user-name=t3dawin --database-user-password=t3dawin --database-host-name=mysql \
-	    --database-port=3306 --database-socket='' --use-existing-database=y --database-name=t3dawin \
+	    --database-port=3306 --database-socket '' --use-existing-database=y --database-name=t3dawin \
 	    --site-setup-type=no
 
 # Extensions
