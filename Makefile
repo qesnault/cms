@@ -10,7 +10,7 @@ autoload:
 	$(COMPOSER) dumpautoload
 
 # Installation
-install: install-composer install-console install-ext install-config cache-clear autoload
+install: install-composer install-console cache-clear autoload
 
 # Vendors
 install-composer:
@@ -29,17 +29,5 @@ install-ext:
 
 # Configurations
 install-config: config-cache config-dev
-
-config-cache:
-	$(CONSOLE) configuration:set SYS/clearCacheSystem true
-
-config-dev:
-	$(CONSOLE) configuration:set SYS/displayErrors 1
-	$(CONSOLE) configuration:set SYS/devIPmask '*'
-	$(CONSOLE) configuration:set SYS/sqlDebug 1
-	$(CONSOLE) configuration:set SYS/enableDeprecationLog file
-	$(CONSOLE) configuration:set SYS/systemLogLevel 0
-	$(CONSOLE) configuration:set BE/debug true
-	$(CONSOLE) configuration:set FE/debug true
 
 .PHONY: cache-clear autoload install install-composer install-console install-ext install-config config-cache config-dev
