@@ -4,41 +4,53 @@ With [composer](https://getcomposer.org/) and [typo3_console](https://packagist.
 
 ## Prerequisites
 
-- PHP >= 5.6
-- MySQL >= 5.5
-- Apache >= 2.1 (if available)
+- PHP >= 7.1
+- MySQL >= 5.7
+- Apache >= 2.1 or Nginx (if available)
 - A database user with granted access to **an empty database**
+
+## Development
+
+This distribution is provided with a [laradock](http://laradock.io/) configuration to run TYPO3 with docker.
 
 ## Installation
 
-### Clone the repository
+### Using docker
 
-    git clone git@github.com:pitchart/dawin-typo3-cms-distribution.git ./cms
+    git clone --recursive https://github.com/pitchart/dawin-typo3-cms-distribution.git cms
+    cd cms/laradock-dawin-t3/
+    make install-dev
+
+The TYPO3 website is available at http://localhost/ and the backend at http://localhost/typo3/
+
+### Using system environment
+
+You must [download composer binaries](https://getcomposer.org/download/) before to start installation.
+
+#### Clone the repository
+
+    git clone --recursive https://github.com/pitchart/dawin-typo3-cms-distribution.git cms
     cd cms
 
-### Install vendors from composer
+#### Install vendors with composer
 
     composer install
 
-### Install TYPO3 with typo3_console
+#### Install TYPO3 with typo3_console
 
     php vendor/bin/typo3cms install:setup
 
-## Post installation
+#### Post installation commands
 
-### Activate extensions
+##### Activate an extension
 
     php vendor/bin/typo3cms extension:activate **extension_key**
 
-### Enable system cache flush form backend
-
-    php vendor/bin/typo3cms configuration:set SYS/clearCacheSystem true
-
-### Flush cache
+##### Flush cache
 
     php vendor/bin/typo3cms cache:flush
 
-### Launch a PHP server
+##### Launch a PHP server
 
     php -S localhost:<port> -t web/
 
@@ -55,7 +67,7 @@ The TYPO3 website is available at http://localhost:8080/ and the backend at http
       }
     }
 
-### composer.json template for your extension
+### composer.json template for an extension
 
     {
       "name": "my-vendor/my-extension-key",
@@ -63,7 +75,7 @@ The TYPO3 website is available at http://localhost:8080/ and the backend at http
       "version": "x.x.x",
       "description": "...",
       "require": {
-        "typo3/cms-core": "^7.6"
+        "typo3/cms-core": "^8.7"
       },
       "replace": {
           "my_extension_key": "self.version",

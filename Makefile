@@ -1,4 +1,4 @@
-COMPOSER?=/usr/bin/composer
+COMPOSER?=/usr/local/bin/composer
 CONSOLE= php vendor/bin/typo3cms
 
 # Cache
@@ -10,7 +10,9 @@ autoload:
 	$(COMPOSER) dumpautoload
 
 # Installation
-install: install-composer install-console install-ext install-config cache-clear autoload
+install: install-composer install-console cache-clear autoload
+
+install-dev: install-composer install-console-dev cache-clear autoload
 
 # Vendors
 install-composer:
@@ -18,7 +20,12 @@ install-composer:
 
 # TYPO3
 install-console:
-	$(CONSOLE) install:setup
+	$(CONSOLE) install:setup --site-setup-type=no
+
+install-console-dev:
+	$(CONSOLE) install:setup --database-user-name=t3dawin --database-user-password=t3dawin --database-host-name=mysql \
+	    --database-port=3306 --database-socket '' --use-existing-database=y --database-name=t3dawin \
+	    --site-setup-type=no
 
 # Extensions
 install-ext:
@@ -26,21 +33,8 @@ install-ext:
 	$(CONSOLE) extension:activate introduction
 	$(CONSOLE) extension:activate extension_builder
 	$(CONSOLE) extension:activate gridelements
-	$(CONSOLE) extension:activate bootstrap_grids
 
 # Configurations
 install-config: config-cache config-dev
-
-config-cache:
-	$(CONSOLE) configuration:set SYS/clearCacheSystem true
-
-config-dev:
-	$(CONSOLE) configuration:set SYS/displayErrors 1
-	$(CONSOLE) configuration:set SYS/devIPmask '*'
-	$(CONSOLE) configuration:set SYS/sqlDebug 1
-	$(CONSOLE) configuration:set SYS/enableDeprecationLog file
-	$(CONSOLE) configuration:set SYS/systemLogLevel 0
-	$(CONSOLE) configuration:set BE/debug true
-	$(CONSOLE) configuration:set FE/debug true
 
 .PHONY: cache-clear autoload install install-composer install-console install-ext install-config config-cache config-dev

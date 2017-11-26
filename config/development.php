@@ -11,6 +11,7 @@ return [
         'systemLog' => 'error_log',
         'syslogErrorReporting' => 1,
         'belogErrorReporting' => 0,
+        'clearCacheSystem' => true,
     ],
     'BE' => [
         'debug' => true,
