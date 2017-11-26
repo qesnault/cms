@@ -18,7 +18,7 @@ install-composer:
 
 # TYPO3
 install-console:
-	$(CONSOLE) install:setup
+	$(CONSOLE) install:setup --database-user-name=t3dawin --database-user-password=t3dawin --database-host-name=mysql --database-name=t3dawin
 
 # Extensions
 install-ext:
