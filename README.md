@@ -56,6 +56,35 @@ You must [download composer binaries](https://getcomposer.org/download/) before 
 
 The TYPO3 website is available at http://localhost:8080/ and the backend at http://localhost:8080/typo3/
 
+### Install on Windows 
+
+
+#### Clone the repository inside C: disk and follow these instructions :
+
+    git clone --recursive https://github.com/pitchart/dawin-typo3-cms-distribution.git cms
+    cd cms
+
+#### Install vendors with composer
+
+    composer install
+	
+#### Install typo3	
+
+	php -S localhost:<port> -t web/
+
+- Open the browser at http://localhost:<port>/typo3/
+- Set your database to utf8
+
+	ALTER DATABASE CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+
+- Create FIRST_INSTALL file inside web/ directory
+- Follow the steps in the browser
+
+#### If Openssl is not available :
+
+Update LocalConfiguration.php file (web/typo3conf/): replace BE/loginSecurityLevel from 'rsa' to 'normal' 
+
+
 ## TIPS
 
 ### Adding your extension's class loading informations
