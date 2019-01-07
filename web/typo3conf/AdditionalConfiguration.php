@@ -12,26 +12,12 @@ $configurationFiles = [
     $confDir.$context.'.php',
 ];
 
-$identifier = array_reduce($configurationFiles, function ($accumulator, $file) {
-    if (file_exists($file)) {
-        $accumulator .= filemtime($file);
-    }
-    return $accumulator;
-}, '');
 
-$cacheIdentifier = md5($context.$identifier);
-
-$configLoader = new \Helhum\ConfigLoader\CachedConfigurationLoader(
-    $cacheDir,
-    $cacheIdentifier,
-    function() use ($confDir, $context) {
-        return new \Helhum\ConfigLoader\ConfigurationLoader(
-            [
-                new \Helhum\ConfigLoader\Reader\PhpFileReader($confDir.'default.php'),
-                new \Helhum\ConfigLoader\Reader\PhpFileReader($confDir.$context.'.php'),
-            ]
-        );
-    }
+$configLoader = new \Helhum\ConfigLoader\ConfigurationLoader(
+    [
+        new \Helhum\ConfigLoader\Reader\PhpFileReader($confDir.'default.php'),
+        new \Helhum\ConfigLoader\Reader\PhpFileReader($confDir.$context.'.php'),
+    ]
 );
 
 $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive(
