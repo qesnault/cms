@@ -90,7 +90,7 @@ Update LocalConfiguration.php file (web/typo3conf/): replace BE/loginSecurityLev
 Go to wamp files in bin/php/php7.1
 Copy the php.exe, paste and rename in php71.exe for example
 
-add this version of php in the path (variables d'environnement systeme)
+add this version of php in the path (variables d'environnement systeme )
 In a terminal, go to your project and execute this command:
 
     php71 -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
