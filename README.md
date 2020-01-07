@@ -89,17 +89,15 @@ Update LocalConfiguration.php file (web/typo3conf/): replace BE/loginSecurityLev
 
 Go to wamp files in bin/php/php7.1
 Copy the php.exe, paste and rename in php71.exe for example
+
+add this version of php in the path (variables d'environnement systeme )
 In a terminal, go to your project and execute this command:
 
-php71 -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-
-php71 -r "if (hash_file('sha384', 'composer-setup.php') === 'baf1608c33254d00611ac1705c1d9958c817a1a33bce370c0595974b342601bd80b92a3f46067da89e3b06bff421f182') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-
-php71 composer-setup.php
-
-php71 -r "unlink('composer-setup.php');"
-
-php71 composer.phar install
+    php71 -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php71 -r "if (hash_file('sha384', 'composer-setup.php') === 'baf1608c33254d00611ac1705c1d9958c817a1a33bce370c0595974b342601bd80b92a3f46067da89e3b06bff421f182') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php71 composer-setup.php
+    php71 -r "unlink('composer-setup.php');"
+    php71 composer.phar install
 
 ### Adding your extension's class loading informations
 
