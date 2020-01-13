@@ -56,8 +56,7 @@ You must [download composer binaries](https://getcomposer.org/download/) before 
 
 The TYPO3 website is available at http://localhost:8080/ and the backend at http://localhost:8080/typo3/
 
-### Install on Windows 
-
+### Install on Windows
 
 #### Clone the repository inside C: disk and follow these instructions :
 
@@ -67,25 +66,38 @@ The TYPO3 website is available at http://localhost:8080/ and the backend at http
 #### Install vendors with composer
 
     composer install
-	
-#### Install typo3	
 
-	php -S localhost:<port> -t web/
+#### Install typo3
+
+    php -S localhost:<port> -t web/
 
 - Open the browser at http://localhost:<port>/typo3/
 - Set your database to utf8
 
-	ALTER DATABASE CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+      	ALTER DATABASE CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
 - Create FIRST_INSTALL file inside web/ directory
 - Follow the steps in the browser
 
 #### If Openssl is not available :
 
-Update LocalConfiguration.php file (web/typo3conf/): replace BE/loginSecurityLevel from 'rsa' to 'normal' 
-
+Update LocalConfiguration.php file (web/typo3conf/): replace BE/loginSecurityLevel from 'rsa' to 'normal'
 
 ## TIPS
+
+### Issues with a version of PHP which is to early (if you use wamp)
+
+Go to wamp files in bin/php/php7.1
+Copy the php.exe, paste and rename in php71.exe for example
+
+add this version of php in the path (variables d'environnement systeme )
+In a terminal, go to your project and execute this command:
+
+    php71 -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php71 -r "if (hash_file('sha384', 'composer-setup.php') === 'baf1608c33254d00611ac1705c1d9958c817a1a33bce370c0595974b342601bd80b92a3f46067da89e3b06bff421f182') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php71 composer-setup.php
+    php71 -r "unlink('composer-setup.php');"
+    php71 composer.phar install
 
 ### Adding your extension's class loading informations
 
@@ -116,20 +128,21 @@ Update LocalConfiguration.php file (web/typo3conf/): replace BE/loginSecurityLev
         }
       }
     }
-    
+
 ### Show php error in development mode
 
 By default Typo3 replaces php errors by a message in order to avoid stopping the page's loading if a php error has occured.
 In development mode you need to deactivate this mode.
 
-In List Go to the root page (Page next to earth), then edit the template record. 
+In List Go to the root page (Page next to earth), then edit the template record.
 In the field setup add the following code:
 
     config.contentObjectExceptionHandler = 0
-    
+
 https://docs.typo3.org/typo3cms/TyposcriptReference/Setup/Config/Index.html#contentobjectexceptionhandler
 
 ## References
+
 - [TYPO3 extensions available for composer usage](https://composer.typo3.org/satis.html)
 - [TYPO3 Documentations](https://docs.typo3.org/typo3cms/References.html)
 - [Composer and TYPO3 7LTS](https://usetypo3.com/typo3-and-composer.html)
