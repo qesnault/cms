@@ -27,7 +27,7 @@
     "typo3/cms-tstemplate": "^9.5",
     "typo3/cms-viewpage": "^9.5",
     "helhum/typo3-console":"^5.8",
-    "helhum/config-loader": "~0.1.0",
+    "helhum/config-loader": ">=0.9",
     "friendsoftypo3/extension-builder": "~9.10",
     "typo3-ter/introduction": "^4.0",
     "gridelementsteam/gridelements": "^9.5"
@@ -40,5 +40,7 @@
     "helhum/typo3-console": {
         "install-extension-dummy": false
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
